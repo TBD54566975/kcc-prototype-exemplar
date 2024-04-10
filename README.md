@@ -32,4 +32,11 @@ The scripts in this stage are provided to illustrate the sequential ordering of 
 
 - The IDV Vendor's form may be an iframe within an HTML resource hosted by the issuer
 - We don't support `vp_token` here
-- We aren't currently performing any `id_token` verification
+- We aren't currently performing any nonce verfication within the issuer
+- We use `@web5/credentials` for our JWT signing & verification, but any JWT solution will suffice
+  - Known issue (non-conformant with the kcc spec) with respect to JWS `typ` header
+
+---
+
+TODO diagram which outputs feed in to which inputs
+TODO add `typ` option to web5 JWT?

@@ -12,7 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "@web5/credentials": "^1.0.0",
-    "@web5/dids": "^1.0.0",
-    "yargs": "^17.7.2"
+    "@web5/dids": "^1.0.0"
   }
 }

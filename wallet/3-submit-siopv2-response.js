@@ -1,18 +1,9 @@
 import {Jwt} from '@web5/credentials'
 import {DidDht} from '@web5/dids'
 import fs from 'fs'
-import yargs from 'yargs'
-import {hideBin} from 'yargs/helpers'
 
 const bearerDid = await DidDht.import({portableDid: JSON.parse(fs.readFileSync("./portable-did.json"))})
-const argv = yargs(hideBin(process.argv)).argv
-
-if (!argv._[0]) {
-  console.log("Usage: node 3-submit-siopv2-respomse.js <siopv2Request as a JSON string>")
-  process.exit(1)
-}
-
-const siopv2Request = JSON.parse(argv._[0])
+const siopv2Request = JSON.parse(process.argv[2])
 
 // build the SIOPv2 Auth Response
 const siopv2Response = {
@@ -35,5 +26,5 @@ const res = await fetch(siopv2Request.response_uri, {
   body: JSON.stringify(siopv2Response)
 })
 const body = await res.json()
-if (argv.noindent) console.log(JSON.stringify(body))
-else console.log(JSON.stringify(body, null, 2))
+
+console.log(JSON.stringify(body, null, 2))

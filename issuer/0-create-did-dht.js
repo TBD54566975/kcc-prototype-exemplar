@@ -7,7 +7,7 @@ const bearerDid = await DidDht.create({
       {
         id              : 'identity-verification-1',
         type            : 'IDV',
-        serviceEndpoint : 'http://localhost:3001/idv',
+        serviceEndpoint : 'http://localhost:3001/siopv2/auth-request',
       }
     ]
   }
