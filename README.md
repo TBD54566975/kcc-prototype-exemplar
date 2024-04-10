@@ -1,9 +1,5 @@
 # kcc-proto-exemplar
 
-You should actually read me. Seriously.
-
----
-
 This is a simple implementation to illustrate the [known-customer-credential](https://github.com/TBD54566975/known-customer-credential) specification in code form.
 
 # Guide
@@ -22,7 +18,7 @@ This is a simple implementation to illustrate the [known-customer-credential](ht
 cd idv-vendor; node server.js
 ```
 
-And then in a different shell
+And then in a different shell (or feel free to manage background processes)
 
 ```shell
 cd issuer; node server.js
@@ -35,6 +31,8 @@ The scripts in this stage are provided to illustrate the sequential ordering of 
 ```shell
 (cd wallet; ./full-flow.sh)
 ```
+
+You can also step through each call in the sequence one-by-one (view `wallet/full-flow.sh` for more info).
 
 # Notes
 
