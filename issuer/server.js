@@ -29,11 +29,19 @@ app.get('/siopv2/auth-request', (_, res) => {
 
 /** called by wallet/3-submit-siopv2-response.js */
 app.post('/siopv2/auth-response', async (req, res) => {
-  const {payload} = await Jwt.verify({ jwt: req.body.id_token })
-  if (!payload.nonce) {
-    // todo implement your custom nonce verification logic
-    console.error('Nonce invalid')
-    res.status(403).end()
+  try {
+    const {payload} = await Jwt.verify({ jwt: req.body.id_token })
+    if (!payload.nonce) {
+      // todo implement your custom nonce verification logic
+      console.error('Nonce invalid')
+      res.status(403).end()
+      return
+    }
+  } catch {
+    res.status(401).json({
+      error: 'invalid_token',
+      error_description: 'Token verification failed'
+    })
     return
   }
 
@@ -112,7 +120,7 @@ app.post('/oid4vci/token', async (req, res) => {
     return
   }
 
-  const exp = Math.floor(Date.now() / 1000) + (30 * 60); // plus 30 minutes
+  const exp = Math.floor(Date.now() / 1000) + (30 * 60) // plus 30 minutes
   const claims = {
     iss: bearerDid.uri,
     sub: req.body.client_id,

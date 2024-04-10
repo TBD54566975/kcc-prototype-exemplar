@@ -14,7 +14,7 @@ const claims = {
   nonce: accessTokenResponse.c_nonce
 }
 // TODO the JWS 'typ' header won't be properly set
-const proofJwt = await Jwt.sign({signerDid: bearerDid, payload: claims});
+const proofJwt = await Jwt.sign({signerDid: bearerDid, payload: claims})
 
 const res = await fetch(credentialIssuerMetadata.credential_endpoint, {
   method: 'POST',
