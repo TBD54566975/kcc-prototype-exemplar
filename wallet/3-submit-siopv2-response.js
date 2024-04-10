@@ -5,7 +5,6 @@ import fs from 'fs'
 const bearerDid = await DidDht.import({portableDid: JSON.parse(fs.readFileSync("./portable-did.json"))})
 const siopv2Request = JSON.parse(process.argv[2])
 
-// build the SIOPv2 Auth Response
 const siopv2Response = {
   id_token: await Jwt.sign({
     signerDid: bearerDid,

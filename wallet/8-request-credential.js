@@ -32,8 +32,7 @@ const res = await fetch(credentialIssuerMetadata.credential_endpoint, {
 })
 const body = await res.json()
 
-console.log(JSON.stringify(body, null, 2))
-console.log()
+console.log(JSON.stringify(body, null, 2) + '\n')
 
 const {payload} = await Jwt.verify({jwt: body.credential})
 console.log(JSON.stringify(payload.vc, null, 2))

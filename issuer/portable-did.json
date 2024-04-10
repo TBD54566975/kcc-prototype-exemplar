@@ -1,36 +1,36 @@
 {
-  "uri": "did:dht:pnrqiiogeadkx37s57kw9onczy3ra3cyyupjmrfizb4bgtbup16o",
+  "uri": "did:dht:7o4xgexaricct5gjk333xo6mwt1tmd57smmyddbi9f7bqp9bf7my",
   "document": {
-    "id": "did:dht:pnrqiiogeadkx37s57kw9onczy3ra3cyyupjmrfizb4bgtbup16o",
+    "id": "did:dht:7o4xgexaricct5gjk333xo6mwt1tmd57smmyddbi9f7bqp9bf7my",
     "verificationMethod": [
       {
-        "id": "did:dht:pnrqiiogeadkx37s57kw9onczy3ra3cyyupjmrfizb4bgtbup16o#0",
+        "id": "did:dht:7o4xgexaricct5gjk333xo6mwt1tmd57smmyddbi9f7bqp9bf7my#0",
         "type": "JsonWebKey",
-        "controller": "did:dht:pnrqiiogeadkx37s57kw9onczy3ra3cyyupjmrfizb4bgtbup16o",
+        "controller": "did:dht:7o4xgexaricct5gjk333xo6mwt1tmd57smmyddbi9f7bqp9bf7my",
         "publicKeyJwk": {
           "crv": "Ed25519",
           "kty": "OKP",
-          "x": "aIjq1gZGBqfntt9VT8BMuDJMZYAE2pWQtbh0E0QzbL0",
-          "kid": "m7EtlVSxtFuUZ1MSH-0U2PbK6sYy-SaNrCw3pDzY4ok",
+          "x": "7DTzIfglWMjsyVZzl8PLpGUVj32y1gGMNfl6FzfhL1Y",
+          "kid": "vdvbnbDnhpFnJGg2gpk4SMoHdEw8drzQiiFTad4zOZM",
           "alg": "EdDSA"
         }
       }
     ],
     "authentication": [
-      "did:dht:pnrqiiogeadkx37s57kw9onczy3ra3cyyupjmrfizb4bgtbup16o#0"
+      "did:dht:7o4xgexaricct5gjk333xo6mwt1tmd57smmyddbi9f7bqp9bf7my#0"
     ],
     "assertionMethod": [
-      "did:dht:pnrqiiogeadkx37s57kw9onczy3ra3cyyupjmrfizb4bgtbup16o#0"
+      "did:dht:7o4xgexaricct5gjk333xo6mwt1tmd57smmyddbi9f7bqp9bf7my#0"
     ],
     "capabilityDelegation": [
-      "did:dht:pnrqiiogeadkx37s57kw9onczy3ra3cyyupjmrfizb4bgtbup16o#0"
+      "did:dht:7o4xgexaricct5gjk333xo6mwt1tmd57smmyddbi9f7bqp9bf7my#0"
     ],
     "capabilityInvocation": [
-      "did:dht:pnrqiiogeadkx37s57kw9onczy3ra3cyyupjmrfizb4bgtbup16o#0"
+      "did:dht:7o4xgexaricct5gjk333xo6mwt1tmd57smmyddbi9f7bqp9bf7my#0"
     ],
     "service": [
       {
-        "id": "did:dht:pnrqiiogeadkx37s57kw9onczy3ra3cyyupjmrfizb4bgtbup16o#identity-verification-1",
+        "id": "did:dht:7o4xgexaricct5gjk333xo6mwt1tmd57smmyddbi9f7bqp9bf7my#identity-verification-1",
         "type": "IDV",
         "serviceEndpoint": "http://localhost:3001/siopv2/auth-request"
       }
@@ -38,15 +38,15 @@
   },
   "metadata": {
     "published": true,
-    "versionId": "1712759785"
+    "versionId": "1712769157"
   },
   "privateKeys": [
     {
       "crv": "Ed25519",
-      "d": "EBAjByLyQhW20ocny73Z_RTMnqfnTmvrl9cV-kPtFas",
+      "d": "Wewlzw_BgLQwD6GE_pnLg4m9i0hFT58tDz9vvqB9tfU",
       "kty": "OKP",
-      "x": "aIjq1gZGBqfntt9VT8BMuDJMZYAE2pWQtbh0E0QzbL0",
-      "kid": "m7EtlVSxtFuUZ1MSH-0U2PbK6sYy-SaNrCw3pDzY4ok",
+      "x": "7DTzIfglWMjsyVZzl8PLpGUVj32y1gGMNfl6FzfhL1Y",
+      "kid": "vdvbnbDnhpFnJGg2gpk4SMoHdEw8drzQiiFTad4zOZM",
       "alg": "EdDSA"
     }
   ]

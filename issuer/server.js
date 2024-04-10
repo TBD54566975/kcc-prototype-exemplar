@@ -11,6 +11,8 @@ const bearerDid = await DidDht.import({portableDid: JSON.parse(fs.readFileSync("
 
 app.use(express.json())
 
+let idvResults = {}
+
 /** called by wallet/2-request-siopv2-request.js */
 app.get('/siopv2/auth-request', (_, res) => {
   const siopv2AuthRequest = {
@@ -45,7 +47,7 @@ app.post('/siopv2/auth-response', async (req, res) => {
     }
   }
 
-  /** TODO at this point we may prepare the IDV vendor for a submission, depending on the IDV integration requirements */
+  idvResults[payload.iss] = 'idv-pending'
 
   const idvRequest = {
     credential_offer: credentialOffer,
@@ -78,6 +80,11 @@ app.get('/.well-known/oauth-authorization-server', (_, res) => {
   res.status(200).json(authorizationServerMetadata)
 })
 
+app.post('/idv/result', (req, res) => {
+  idvResults[req.body.applicantDid] = 'idv-completed'
+  res.status(201).end()
+})
+
 app.post('/oid4vci/token', async (req, res) => {
   if (req.body.grant_type !== 'urn:ietf:params:oauth:grant-type:pre-authorized_code') {
     res.status(400).json({
@@ -93,6 +100,14 @@ app.post('/oid4vci/token', async (req, res) => {
     res.status(400).json({
       'error': 'invalid_grant',
       'error_description': 'The provided pre-auth code is invalid',
+    })
+    return
+  }
+
+  if (idvResults[req.body.client_id] === 'idv-pending') {
+    res.status(428).json({
+      'error': 'authorization_pending',
+      'error_description': 'Still waiting to hear back from the IDV submission',
     })
     return
   }
