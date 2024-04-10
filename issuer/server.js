@@ -12,6 +12,7 @@ const bearerDid = await DidDht.import({portableDid: JSON.parse(fs.readFileSync("
 app.use(express.json())
 
 let idvResults = {}
+let payload;
 
 /** called by wallet/2-request-siopv2-request.js */
 app.get('/siopv2/auth-request', (_, res) => {
@@ -30,7 +31,7 @@ app.get('/siopv2/auth-request', (_, res) => {
 /** called by wallet/3-submit-siopv2-response.js */
 app.post('/siopv2/auth-response', async (req, res) => {
   try {
-    const {payload} = await Jwt.verify({ jwt: req.body.id_token })
+    ({payload} = await Jwt.verify({ jwt: req.body.id_token }))
     if (!payload.nonce) {
       // todo implement your custom nonce verification logic
       console.error('Nonce invalid')
