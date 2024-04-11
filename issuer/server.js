@@ -22,7 +22,10 @@ app.get('/siopv2/auth-request', (_, res) => {
     nonce: crypto.randomBytes(16).toString('hex'),
     scope: 'openid',
     response_mode: 'direct_post',
-    response_uri: `http://localhost:${PORT}/siopv2/auth-response`
+    response_uri: `http://localhost:${PORT}/siopv2/auth-response`,
+    client_metadata: {
+      subject_syntax_types_supported: 'did:dht did:jwk did:web'
+    }
   }
 
   res.status(200).json(siopv2AuthRequest)
